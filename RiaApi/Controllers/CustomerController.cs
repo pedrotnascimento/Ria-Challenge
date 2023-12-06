@@ -71,12 +71,44 @@ namespace RiaApi.Controllers
         {
             customerInternalArray.AddRange(customers);
 
-            // Sort the list using the custom comparer
-            customerInternalArray.Sort(new CustomerComparer());
+            BubbleSort(customerInternalArray);
+        }
 
-            // customerInternalArray = customerInternalArray
-            //     .OrderBy(customer => customer.LastName)
-            //     .ThenBy(customer => customer.FirstName).ToList();
+        public static void BubbleSort(List<Customer> customers)
+        {
+            int n = customers.Count;
+            for (int i = 0; i < n - 1; i++)
+            {
+                for (int j = 0; j < n - i - 1; j++)
+                {
+                    int lastNameComparison = string.Compare(customers[j].LastName,
+                    customers[j + 1].LastName,
+                    StringComparison.OrdinalIgnoreCase);
+
+                    if (lastNameComparison == 0)
+                    {
+                        int firstNameComparison = string.Compare(customers[j].FirstName,
+                        customers[j + 1].FirstName,
+                        StringComparison.OrdinalIgnoreCase);
+
+                        if (firstNameComparison > 0)
+                        {
+                            Swap(customers, j, j + 1);
+                        }
+                    }
+                    else if (lastNameComparison > 0)
+                    {
+                        Swap(customers, j, j + 1);
+                    }
+                }
+            }
+        }
+
+        public static void Swap(List<Customer> customers, int i, int j)
+        {
+            Customer temp = customers[i];
+            customers[i] = customers[j];
+            customers[j] = temp;
         }
     }
 }
