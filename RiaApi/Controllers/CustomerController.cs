@@ -12,13 +12,13 @@ namespace RiaApi.Controllers
 
         private readonly ILogger<CustomerController> _logger;
         private readonly ICustomerRepository _customerRepository;
-        private List<Customer>? customerInternalArray;
+        private List<Customer>? customerInternalArray = new List<Customer>();
 
         public CustomerController(ILogger<CustomerController> logger, ICustomerRepository customerRepository)
         {
             _logger = logger;
             _customerRepository = customerRepository;
-            customerInternalArray = _customerRepository.GetInternalArray();
+            customerInternalArray = _customerRepository.GetInternalArray() ?? new List<Customer>();
         }
 
         [HttpGet()]
