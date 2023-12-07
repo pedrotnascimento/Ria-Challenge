@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "7bb2ee42-d88f-4335-a663-a68cf0a8427c",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1627461"
+	},
+	"item": [
+		{
+			"name": "CreateMany",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"firstName\": \"9\",\r\n        \"lastName\": \"9\",\r\n        \"age\": 20,\r\n        \"id\": 17\r\n    }\r\n    \r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7060/customer",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7060",
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7060/customer",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7060",
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
